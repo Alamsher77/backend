@@ -11,6 +11,3 @@ const mongoDb = async ()=> {
 export default mongoDb
 
 
-// mongodb+srv://shopping:<password>@shopping1.hvzin2o.mongodb.net/?retryWrites=true&w=majority&appName=shopping1
-
-// mongodb+srv://shopping:shopping1234@shopping1.hvzin2o.mongodb.net/shoppingapp

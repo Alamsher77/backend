@@ -34,7 +34,7 @@ const PORT = process.env.PORT ||4000
 });
 
 app.get('/',(req,res)=>{
-  res.send('app server update successfull')
+  res.send('app running on global')
 })
 
 
