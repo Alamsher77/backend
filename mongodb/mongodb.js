@@ -1,9 +1,14 @@
 import mongoose from 'mongoose'
 
 const mongoDb = async ()=> {
+  const url = "mongodb+srv://shopping:shopping1234@shoppingapp.nvds4xq.mongodb.net/shoppingapp"
+  
   try {
-    await mongoose.connect("mongodb+srv://shopping:shopping1234@shoppingapp.nvds4xq.mongodb.net/?retryWrites=true&w=majority&appName=ShoppingApp")
-    console.log('connected to db')
+   
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected...'))
+    .catch(err => console.log(err));
+
   }catch(error) {
     console.log(error)
   }
