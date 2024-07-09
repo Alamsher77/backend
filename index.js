@@ -18,20 +18,9 @@ const app = express()
  app.use(cookieParser())
  app.use('/api',router)
  
- 
- 
  app.use('/image',express.static('uploads/image'))
  
 const PORT = process.env.PORT ||4000 
- app.use('/route', async (req, res) => {
-    try {
-        const data = await someAsyncFunction();
-        res.json(data);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('An error occurred');
-    }
-});
 
 app.get('/',(req,res)=>{
   res.send('app running on global')
