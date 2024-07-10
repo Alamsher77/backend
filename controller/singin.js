@@ -42,7 +42,12 @@ const userSingInController = async (req,res)=>{
 
  
   
-  res.cookie('token', token, { maxAge: 2592000000,httpOnly: true,secure: true });
+  res.cookie('token', token, {
+    maxAge: 2592000000,
+    httpsOnly: true,
+    secure: true,
+    domain:"https://shoppingnewapi.onrender.com"
+  });
  
 
   res.json({
