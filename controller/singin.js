@@ -42,7 +42,7 @@ const userSingInController = async (req,res)=>{
 
  
   
-  res.cookie('token', token, { maxAge: 2592000000 });
+  res.cookie('token', token, { maxAge: 2592000000,httpOnly: true,secure: true });
  
 
   res.json({
