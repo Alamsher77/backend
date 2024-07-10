@@ -46,7 +46,8 @@ const userSingInController = async (req,res)=>{
     maxAge: 2592000000,
     httpsOnly: true,
     secure: true,
-    domain:"https://shoppingnewapi.onrender.com"
+    domain:"http://localhost:5173",
+    path:"http://localhost:5173/signup"
   });
  
 
