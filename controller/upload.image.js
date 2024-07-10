@@ -14,7 +14,7 @@ const upload = multer({storage})
 const response = (req,res)=>{
   res.json({
     success:true,
-    image_url:`https://shoppingapi-d12a.onrender.com/image/${req.file.filename}`
+    image_url:`https://shoppingnewapi.onrender.com/image/${req.file.filename}`
   })
 }
 
