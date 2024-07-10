@@ -39,7 +39,12 @@ const userSingInController = async (req,res)=>{
    
  
     const token = await  jwt.sign(filtterUsers,"ahsdjehorwejdhfowrwerijlksfjasf", { expiresIn: '30d' });
-    
+
+    res.json({
+    success:false,
+      message:token
+    })
+    return false
      
   
   res.cookie('token', token, { maxAge: 2592000000 });
