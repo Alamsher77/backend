@@ -6,7 +6,7 @@ const authenticateJWT = (req, res, next) => {
     if (!token) {
     res.status(400).json({
      success:false,
-     message:'Please login',
+     message:'Please login'+token,
      data:token
     })
       return false
