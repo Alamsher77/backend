@@ -5,10 +5,8 @@ const mongoDb = async ()=> {
   
   try {
    
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected...'))
-    .catch(err => console.log(err));
-
+mongoose.connect(url)
+    console.log("db connected success")
   }catch(error) {
     console.log(error)
   }
