@@ -4,7 +4,9 @@ const authenticateJWT = (req, res, next) => {
  const token = req.cookies?["token"]
 
 
-  console.log(token)
+  res.status(200).json({
+   data:token
+  })
   return false 
   if (!token) {
    res.status(400).json({
