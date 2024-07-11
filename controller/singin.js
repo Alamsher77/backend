@@ -46,8 +46,8 @@ const userSingInController = async (req,res)=>{
     maxAge: 2592000000,
     httpsOnly: true,
     secure: true,
-    domain:"http://localhost:5173",
-    path:"http://localhost:5173/signup"
+    domain:"https://backend-production-d480.up.railway.app",
+    path:"/"
   });
  
 
