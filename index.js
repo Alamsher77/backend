@@ -12,7 +12,8 @@ const app = express()
  
  app.use(cors({
    origin:["http://localhost:5173","https://backend-production-d480.up.railway.app"],
-   credentials:true
+   credentials:true,
+  samesite="none"
  }))
  
  app.use(cookieParser())
