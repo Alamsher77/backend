@@ -1,7 +1,7 @@
  import jwt from 'jsonwebtoken'
 const authenticateJWT = (req, res, next) => {
   
- const token = req?.cookies
+ const token = req.cookies?.token
   if (!token) {
    res.status(400).json({
      success:false,
