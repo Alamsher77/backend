@@ -45,9 +45,7 @@ const userSingInController = async (req,res)=>{
   res.cookie('token', token, {
     maxAge: 2592000000,
     httpsOnly: true,
-    secure: true,
-    domain:"https://backend-production-d480.up.railway.app",
-    path:"/"
+    secure: true
   });
  
 
