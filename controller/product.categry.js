@@ -24,7 +24,8 @@ const productCategry = async (req,res)=>{
   await allCategry.save()
   res.json({
     success:true,
-    message:allCategry
+    message:"categry added",
+    data:allCategry
   })
   
 }
