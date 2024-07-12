@@ -31,7 +31,8 @@ const addProduct = async (req,res)=>{
   await allProducts.save()
   res.json({
     success:true,
-    message:allProducts
+    data:allProducts,
+    message:'categry added'
   })
     
   }catch(error){
