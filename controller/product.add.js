@@ -32,7 +32,7 @@ const addProduct = async (req,res)=>{
   res.json({
     success:true,
     data:allProducts,
-    message:'categry added'
+    message:'Product added'
   })
     
   }catch(error){
