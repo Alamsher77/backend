@@ -38,7 +38,7 @@ const userSingInController = async (req,res)=>{
     }
    
  
-    const token = await  jwt.sign(filtterUsers,"ahsdjehorwejdhfowrwerijlksfjasf", { expiresIn: '30d' });
+    const token = await  jwt.sign(filtterUsers,process.env.secrate_key, { expiresIn: '30d' });
 
  
   

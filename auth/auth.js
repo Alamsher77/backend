@@ -11,7 +11,7 @@ const authenticateJWT = (req, res, next) => {
       return false 
     }
 
-    jwt.verify(token,"ahsdjehorwejdhfowrwerijlksfjasf", (err, email) => {
+    jwt.verify(token,process.env.secrate_key, (err, email) => {
      if(err){
        console.log('error',err)
      }
