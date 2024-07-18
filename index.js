@@ -11,7 +11,7 @@ const app = express()
  app.use(express.json()) 
  
  app.use(cors({
-   origin:"https://fronted-weld-two.vercel.app",
+   origin:"https://master--onlineshopes.netlify.app",
    credentials:true
  }))
  
