@@ -22,7 +22,7 @@ const addToCart = async (req,res)=>{
   
   res.json({
     success:true,
-    message:'Product added',
+    message:'Product added to cart',
     data:saveCartProduct
   })
 }

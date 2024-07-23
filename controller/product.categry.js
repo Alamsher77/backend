@@ -1,7 +1,8 @@
 import categryModel from '../models/category.model.js'
 const productCategry = async (req,res)=>{
-  const {categry} = req.body;
-  if(categry == ""){
+  const {categry,catelogo} = req.body;
+  
+  if(categry == "" ){
     res.json({
       success:false,
       message:"please provide all fields"
@@ -19,7 +20,7 @@ const productCategry = async (req,res)=>{
     return false
   }
   
-  const allCategry = new categryModel({categry})
+  const allCategry = new categryModel({categry,catelogo})
   
   await allCategry.save()
   res.json({
