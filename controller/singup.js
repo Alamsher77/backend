@@ -36,7 +36,8 @@ const userSinigupController = async (req,res)=>{
     
   await userData.save()
   res.status(200).json({
-    message:userData,
+    data:userData,
+    message:"User Created SuccessFull",
     success:true
   })
     
