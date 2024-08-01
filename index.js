@@ -9,9 +9,9 @@ import cookieParser from 'cookie-parser'
 dotenv.config()   
 const app = express()
  app.use(express.json()) 
- 
+// https://master--onlineshopes.netlify.app
  app.use(cors({
-   origin:"https://master--onlineshopes.netlify.app",
+   origin:"http://localhost:5173",
    credentials:true
  }))
  
