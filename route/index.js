@@ -15,6 +15,7 @@ import  {addProduct,showProduct} from '../controller/product.add.js'
  import countCartProduct from '../controller/countCartProduct.js'
  import cartProductView from '../controller/cartProductView.js'
   import cartDelete from '../controller/cartDelete.js'
+  import {updateProduct,findByIdProduct} from '../controller/update/updateProduct.js'
 const router = express.Router()
  
 // upload image api
@@ -42,4 +43,8 @@ router.post('/addtoCart',authenticateJWT,addToCart)
 router.get('/countCartProduct',authenticateJWT,countCartProduct)
 router.get('/cartProductView',authenticateJWT,cartProductView)
 router.post('/cartDelete',authenticateJWT,cartDelete)
+
+// update Product functions
+router.post('/updateProduct/:id',updateProduct)
+router.get('/findByIdProduct/:id',findByIdProduct)
 export default router
