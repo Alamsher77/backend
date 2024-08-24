@@ -1,6 +1,7 @@
 
 const logout = async(req,res)=>{
-res.clearCookie('token',{
+  try{
+    res.clearCookie('token',{
     secure: true,
     httpOnly: true,
     sameSite:"None"
@@ -9,5 +10,8 @@ res.clearCookie('token',{
     success:true,
     message:'Logout SuccessFull'
   })
+  }catch(error){
+    console.log(error)
+  }
 }
 export default logout

@@ -1,6 +1,7 @@
 import productCart from '../models/productCart.js' 
 const cartProductView = async (req,res)=>{
-  const currentUser = req.userId
+ try{
+    const currentUser = req.userId
   const findProductCategry = await productCart.find({userId:currentUser}).populate("productId")
   
   res.json({
@@ -8,5 +9,8 @@ const cartProductView = async (req,res)=>{
     allProducts:findProductCategry
   })
 
+ }catch(error){
+   console.log(error)
+ }
 }
 export default cartProductView

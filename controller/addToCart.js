@@ -1,6 +1,7 @@
 import productCart from '../models/productCart.js'
 
 const addToCart = async (req,res)=>{
+  try{
   const {productId,proimage,} = req.body
   const userId = req.userId
   const findCartProduct = await productCart.findOne({userId,productId})
@@ -26,5 +27,8 @@ const addToCart = async (req,res)=>{
     message:'Product added to cart',
     data:saveCartProduct
   })
+  }catch(error){
+    console.log(error)
+  }
 }
 export default addToCart
