@@ -9,15 +9,15 @@ import cookieParser from 'cookie-parser'
 dotenv.config()   
 const app = express()
  app.use(express.json()) 
-
- app.use(cors({
-   origin:"https://master--onlineshopes.netlify.app",
-   credentials:true
- }))
+const url = 'http://localhost:5173'
+app.use(cors({
+  origin:url,
+  credentials:true
+})) 
+app.use(cookieParser())
  
- app.use(cookieParser())
+ 
  app.use('/api',router)
- 
  app.use('/image',express.static('uploads/image'))
  
 const PORT = process.env.PORT ||4000 

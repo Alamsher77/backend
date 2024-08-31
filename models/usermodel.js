@@ -9,6 +9,12 @@ const userSchema = new mongoose.Schema({
  },
  password : String, 
  profilePic : String,
+ currentAddress:String,
+ deleverAddress:String,
+ block:String,
+ city:String,
+ state:String,
+ country:String,
 },{ 
   timestamps : true
 })
