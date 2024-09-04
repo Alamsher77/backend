@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 const orderSchema = new mongoose.Schema({
   userDetails:{},
   productDetails:{},
+  orderType:String,
 },{
  timestamps : true
 })

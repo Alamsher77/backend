@@ -1,19 +1,37 @@
 import userModel from '../../models/usermodel.js'
 import productOrders from '../../models/orderProduct.js'
+import productCart from '../../models/productCart.js'
 const cheqoutAndPayment = async(req,res)=>{
-  try{
+  try{ 
    const userDetails = await userModel.findOne({_id:req.userId})
      
   const ProductOrderDetails = new productOrders({
     userDetails:userDetails,
-    productDetails:req.body
+    productDetails:req.body,
+    orderType:'default',
   })
   await ProductOrderDetails.save()
+  
    res.json({
-     message:'access',
+     message:'Order Successfully',
      success:true
    })
-   console.log(ProductOrderDetails)
+   const reqId = req.body
+    let deletedId = []
+    for(let i=0;i < reqId.length ; i++){
+      deletedId.push(reqId[i]._id)
+    }
+     const result = await productCart.deleteMany({
+            _id: { $in: deletedId }
+        });
+        if(!result){
+          res.json({
+            message:'delete not found',
+            success:false
+          })
+          return false
+        }
+   
   }catch(error){
     res.json({
       message:error.message,

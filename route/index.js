@@ -20,6 +20,7 @@ import userUpdate from '../controller/update/userUpdate.js'
 import updateCartCount from '../controller/update/updateCartCount.js'
 import {latestProduct,randomProduct} from '../controller/latestProduct.js'
 import {cheqoutAndPayment,showOrderProducts} from '../controller/order/cheqoutAndPayment.js'
+import  updateDeleverType from '../controller/order/updateDeleverType.js'
 const router = express.Router()
  
 // upload image api
@@ -64,4 +65,5 @@ router.get('/randomProduct',randomProduct)
 // cheqoutAndPayment api
 router.post('/cheqoutAndPayment',authenticateJWT,cheqoutAndPayment)
 router.get('/showOrderProducts',authenticateJWT,showOrderProducts)
+router.post('/updateDeleverType',updateDeleverType)
 export default router
