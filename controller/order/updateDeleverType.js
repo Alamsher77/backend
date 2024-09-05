@@ -1,8 +1,8 @@
 import productOrders from '../../models/orderProduct.js'
 const updateDeleverType = async (req,res)=>{
   try{ 
-     const {id} = req.body 
-     const updateDeleverOrder = await productOrders.findByIdAndUpdate(id,{orderType:'cancel'})
+     const {id,type} = req.body  
+     const updateDeleverOrder = await productOrders.findByIdAndUpdate(id,{orderType:type})
      console.log(updateDeleverOrder)
      if(!updateDeleverOrder){
        res.json({

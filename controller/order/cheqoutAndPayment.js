@@ -43,7 +43,8 @@ const cheqoutAndPayment = async(req,res)=>{
 const showOrderProducts = async(req,res)=>{
 try{
    
-  const userOrderProducts = await productOrders.find({'productDetails.userId':req.userId}) 
+  const userOrderProducts = await productOrders.find({'productDetails.userId':req.userId})
+  
   if(!userOrderProducts){
     res.json({
       success:false,
@@ -51,9 +52,10 @@ try{
     })
     return false
   }
+  const reverallOrders = [...userOrderProducts].reverse()
   res.json({
     success:true,
-    data:userOrderProducts
+    data:reverallOrders
   })
 }catch(error){
   res.json({
