@@ -11,10 +11,17 @@ const updateDeleverType = async (req,res)=>{
        })
        return false
      }
-     res.json({
+    if(type == 'cancel'){
+       res.json({
        success:true,
        message:'Your Order Was Cancel !'
      })
+    }else{
+         res.json({
+       success:true,
+       message:'Your Order Was Comfirm !'
+     })
+    }
   }catch(error){
     res.json({
       success:false,
