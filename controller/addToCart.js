@@ -2,7 +2,7 @@ import productCart from '../models/productCart.js'
 
 const addToCart = async (req,res)=>{
   try{
-  const {productId,proimage,} = req.body
+  const {productId} = req.body
   const userId = req.userId
   const findCartProduct = await productCart.findOne({userId,productId})
   
@@ -18,7 +18,6 @@ const addToCart = async (req,res)=>{
     productId,
     userId,
     quantity:1,
-    imageCount:proimage,
   })
   const saveCartProduct = await addToCartProduct.save()
   

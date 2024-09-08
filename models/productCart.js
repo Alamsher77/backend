@@ -5,7 +5,6 @@ const productSchema = new mongoose.Schema({
     ref: 'products',
     type:String
   },
-  imageCount:Number,
   quantity:Number
 },{
  timestamps : true
