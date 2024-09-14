@@ -23,6 +23,7 @@ import {latestProduct,randomProduct} from '../controller/latestProduct.js'
 import {cheqoutAndPayment,showOrderProducts} from '../controller/order/cheqoutAndPayment.js'
 import  updateDeleverType from '../controller/order/updateDeleverType.js'
 import  allOrderProducts from '../controller/order/allOrders.js'
+import  deleteCloudnaryImage from '../controller/delete/deleteCloudnaryImage.js'
 const router = express.Router()
  
 // upload image api
@@ -71,4 +72,7 @@ router.post('/cheqoutAndPayment',authenticateJWT,cheqoutAndPayment)
 router.get('/showOrderProducts',authenticateJWT,showOrderProducts)
 router.post('/updateDeleverType',updateDeleverType)
 router.get('/allOrderProducts',allOrderProducts)
+
+// cloudnary image delete api
+router.post('/deleteCloudnaryImage',deleteCloudnaryImage)
 export default router
