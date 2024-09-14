@@ -2,7 +2,7 @@ import categryModel from '../models/category.model.js'
 const productCategry = async (req,res)=>{
   const {categry,catelogo} = req.body;
   
-  if(categry == "" ){
+  if(!categry || !catelogo ){
     res.json({
       success:false,
       message:"please provide all fields"

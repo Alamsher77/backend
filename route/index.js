@@ -18,6 +18,7 @@ import cartDelete from '../controller/cartDelete.js'
 import {updateProduct,findByIdProduct} from '../controller/update/updateProduct.js'
 import userUpdate from '../controller/update/userUpdate.js'
 import updateCartCount from '../controller/update/updateCartCount.js'
+import userRollUpdate from '../controller/update/userRollUpdate.js'
 import {latestProduct,randomProduct} from '../controller/latestProduct.js'
 import {cheqoutAndPayment,showOrderProducts} from '../controller/order/cheqoutAndPayment.js'
 import  updateDeleverType from '../controller/order/updateDeleverType.js'
@@ -59,6 +60,8 @@ router.post('/userUpdate',authenticateJWT,userUpdate)
 // update cartCountProduct 
 router.post('/updateCartCount',authenticateJWT,updateCartCount)
 
+// update user roll api
+router.post("/userRollUpdate",authenticateJWT,userRollUpdate)
 // latest Product api
 router.get('/latestProduct',latestProduct)
 // random Product api
