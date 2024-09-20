@@ -12,7 +12,7 @@ const userUpdate = async(req,res)=>{
     
     res.json({
       success:true,
-      message:'User Details Update Successfull',
+      message:'उपयोगकर्ता विवरण सफलतापूर्वक अपडेट किया गया',
       data:findAndUpdateUserDetails
     })
 }

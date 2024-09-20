@@ -2,24 +2,24 @@ import productOrders from '../../models/orderProduct.js'
 const updateDeleverType = async (req,res)=>{
   try{ 
      const {id,type} = req.body  
-     const updateDeleverOrder = await productOrders.findByIdAndUpdate(id,{orderType:type})
-     console.log(updateDeleverOrder)
-     if(!updateDeleverOrder){
-       res.json({
-         success:false,
-         message:'not cancel order'
-       })
-       return false
-     }
+    const updateDeleverOrder = await productOrders.findByIdAndUpdate(id,{orderType:type})
+    console.log(updateDeleverOrder)
+    if(!updateDeleverOrder){
+      res.json({
+        success:false,
+        message:'not cancel order'
+      })
+      return false
+    }
     if(type == 'cancel'){
        res.json({
        success:true,
-       message:'Your Order Was Cancel !'
+       message:'Your Order Was Canceled !'
      })
     }else{
-         res.json({
+      res.json({
        success:true,
-       message:'Your Order Was Comfirm !'
+       message:'This Order Was Comfirm !'
      })
     }
   }catch(error){

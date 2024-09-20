@@ -5,8 +5,8 @@ import jwt from 'jsonwebtoken'
 const userSingInController = async (req,res)=>{
   try{
     const {email,password} = req.body
-    if(email == '' || password == ''){
-       res.status(200).json({message:'please provide allfields',
+    if(!email || !password){
+       res.status(200).json({message:'input box khali hai pahle input box ko bharen',
         success:false
       })
       return false
@@ -14,7 +14,8 @@ const userSingInController = async (req,res)=>{
     const users = await userModel.findOne({email})
    
     if(!users){
-      res.status(200).json({message:"please check your email or password",
+      res.status(200).json({
+        message:"aapka email or password galat hai ya aapne is email se   register nhi kiya hai yato password ki jaach karen ya register karen",
         success:false
       })
       
@@ -23,7 +24,7 @@ const userSingInController = async (req,res)=>{
  const compearPassword = bcrypt.compareSync(password,users.password)
   if(!compearPassword){
       res.status(200).json({
-       message:"please check your email or password",
+       message:"aapka email or password galat hai ya aapne is email se   register nhi kiya hai yato password ki jaach karen ya register karen",
        success:false
         
       })

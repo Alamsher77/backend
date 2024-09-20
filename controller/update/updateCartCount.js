@@ -2,8 +2,7 @@ import productCart from '../../models/productCart.js'
 const updateCartCount = async(req,res)=>{
   try{
     const userId = req.body._id
-    const qty = req.body.quantity
-     
+    const qty = req.body.quantity 
      const updateCount = await productCart.findByIdAndUpdate(userId,{quantity:qty})
     if(!updateCount){
        res.json({

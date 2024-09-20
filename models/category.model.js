@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const categrySchema = new mongoose.Schema({
  categry : String, 
- catelogo : String,
+ catelogo : Object,
 },{ 
   timestamps : true
 })

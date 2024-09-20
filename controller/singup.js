@@ -5,9 +5,9 @@ const userSinigupController = async (req,res)=>{
     
     const {email,password,name,profilePic} = req.body
      
-   if(email == '' || name == '' || password == ''){
+   if(!email || !name || !password){
     res.status(200).json({
-      message:"please provide allfields",
+      message:"input box khali hai pahle input box ko bharen",
       success:false
     })
     return false
@@ -16,13 +16,20 @@ const userSinigupController = async (req,res)=>{
     const allrady_user = await userModel.findOne({email})
     if(allrady_user){
       res.status(200).json({
-        message:"You are allready singup this site",
+        message:"aapka email iss apps me pahle se hee register hai koi dusra email try karen",
         success:false
       })
       return false
     }
-    
-   
+  
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+   if(!emailPattern.test(email)){
+       res.status(200).json({
+        message:"aapka email galat hai sahi email daale",
+        success:false
+      })
+      return false
+    } 
   const salt = await bcrypt.genSalt(10)
   const hashPassword = await bcrypt.hash(password,salt)
   
@@ -37,7 +44,7 @@ const userSinigupController = async (req,res)=>{
   await userData.save()
   res.status(200).json({
     data:userData,
-    message:"User Created SuccessFull",
+    message:"User resister SuccessFull",
     success:true
   })
     

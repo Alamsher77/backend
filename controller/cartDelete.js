@@ -5,7 +5,7 @@ const cartDelete = async (req,res)=>{
      const cartId = req.body.id
     const cartIteamDelete = await productCart.findOneAndDelete({_id:cartId})
      res.json({
-       message:'Iteam Deleted successsFull',
+       message:'product remove from cart ',
        success:true
      })
  

@@ -1,7 +1,7 @@
 import categryModel from '../models/category.model.js'
 const productCategry = async (req,res)=>{
-  const {categry,catelogo} = req.body;
-  
+ try{
+    const {categry,catelogo} = req.body; 
   if(!categry || !catelogo ){
     res.json({
       success:false,
@@ -14,7 +14,7 @@ const productCategry = async (req,res)=>{
   if(findCategry){
     res.json({
       success:false,
-      message:"categry allredy found"
+      message:"categry allredy added"
     })
     
     return false
@@ -29,6 +29,12 @@ const productCategry = async (req,res)=>{
     data:allCategry
   })
   
+ }catch(error){
+   res.json({
+     success:false,
+     message:error?.message
+   })
+ }
 }
 
 const showProductCategry = async (req,res)=>{
