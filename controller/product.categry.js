@@ -39,7 +39,11 @@ const productCategry = async (req,res)=>{
 
 const showProductCategry = async (req,res)=>{
    const findAllCategry = await categryModel.find({})
-   res.json(findAllCategry) 
+   res.json({
+     success:true,
+     message:'categry fetch',
+     data:findAllCategry
+   }) 
 }
 
 // remove categry 
