@@ -25,6 +25,7 @@ import  updateDeleverType from '../controller/order/updateDeleverType.js'
 import  allOrderProducts from '../controller/order/allOrders.js'
 import  {deleteCloudnaryImage,deleteCloudnaryImageMulltiple} from '../controller/delete/deleteCloudnaryImage.js'
 import {addbanner,showallbanners} from '../controller/addbanner.js'
+import {productreview,showProductreview} from '../controller/productreview.js'
 const router = express.Router()
  
 // upload image api
@@ -79,4 +80,8 @@ router.post('/deleteCloudnaryImage',deleteCloudnaryImage)
 router.post('/deleteCloudnaryImageMulltiple',deleteCloudnaryImageMulltiple)
 router.post('/addbanner',addbanner)
 router.get('/showallbanners',showallbanners)
+
+// review items api 
+router.post('/productreview',authenticateJWT,productreview)
+router.post('/showProductreview',showProductreview)
 export default router
