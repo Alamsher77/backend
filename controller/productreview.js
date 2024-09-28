@@ -36,7 +36,11 @@ const showProductreview = async(req,res)=>{
  try{
   const {productId} = req.body
   const allProductReview = await reviewmodel.find({productId})
-  res.json(allProductReview) 
+    
+  const latestProduct = allProductReview.slice()
+  
+  const reverProduct = [...latestProduct].reverse()
+  res.json(reverProduct) 
  }catch(error){
    res.json({
      success:false,
@@ -46,4 +50,25 @@ const showProductreview = async(req,res)=>{
  }
 }
 
-export  {productreview,showProductreview}
+const deleteReview = async(req,res)=>{
+  try{
+    const deleteReviewItem = await reviewmodel.findByIdAndDelete(req.body.id)
+  if(!deleteReviewItem){
+    res.json({
+      success:false,
+      message:'comment deleted faild'
+    })
+  }
+  res.json({
+    success:true,
+    message:'comment deleted successfull'
+  })
+  }catch(error){
+    res.json({
+      success:false,
+      message:error?.message
+    })
+  }
+}
+
+export  {productreview,showProductreview,deleteReview}
