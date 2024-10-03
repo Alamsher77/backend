@@ -38,4 +38,26 @@ const showallbanners = async(req,res)=>{
   const allbaners = await bannermodel.find()
   res.json(allbaners) 
 }
-export {addbanner,showallbanners}
+const deletebanner = async(req,res)=>{
+  try{
+    const id = req.body.publicid
+    const deletebannerwithid = await bannermodel.findByIdAndDelete(id)
+    if(!deletebannerwithid){
+      res.json({
+        success:false,
+        message:'delete faild'
+      })
+      return faild
+    }
+    res.json({
+    success:true,
+    message:'banner deleted successfully'
+  })
+  }catch(error){
+    res.json({
+      success:false,
+      message:error.message
+    })
+  }
+}
+export {addbanner,showallbanners,deletebanner}
