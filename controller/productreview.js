@@ -7,7 +7,7 @@ const productreview = async (req,res)=>{
    if(!productId,!userRatting,!comment){
      res.json({
   success:false,
-  message:'all fields required'
+  message:'please write a comment'
 })
 return false
    }
