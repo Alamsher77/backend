@@ -86,4 +86,11 @@ router.post('/deletebanner',deletebanner)
 router.post('/productreview',authenticateJWT,productreview)
 router.post('/showProductreview',showProductreview)
 router.post('/deleteReview',deleteReview)
+
+// settings middilwere functions api
+import {changeAppNameAndIcon,updateAppNameAndIcon,getappnameandicon} from '../controller/settings/app.name.app.icon.js'
+
+router.post('/changeAppNameAndIcon',changeAppNameAndIcon)
+router.post('/updateAppNameAndIcon',updateAppNameAndIcon)
+router.get('/getappnameandicon',getappnameandicon)
 export default router
