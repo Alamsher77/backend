@@ -93,4 +93,10 @@ import {changeAppNameAndIcon,updateAppNameAndIcon,getappnameandicon} from '../co
 router.post('/changeAppNameAndIcon',changeAppNameAndIcon)
 router.post('/updateAppNameAndIcon',updateAppNameAndIcon)
 router.get('/getappnameandicon',getappnameandicon)
+
+// mail sender and verify eail api
+import emailsender from '../controller/emailsender.js'
+import verifyforgatepassword from '../controller/verifyforgatepassword.js';
+router.post('/emailsender',emailsender)
+router.post('/verifyforgatepassword',verifyforgatepassword)
 export default router

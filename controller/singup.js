@@ -3,33 +3,25 @@ import bcrypt from 'bcryptjs'
 const userSinigupController = async (req,res)=>{
   try{
     
-    const {email,password,name,profilePic} = req.body
-     
-   if(!email || !name || !password){
-    res.status(200).json({
-      message:"input box khali hai pahle input box ko bharen",
-      success:false
-    })
-    return false
-    } 
-     
+    const {email,phone,password,name,conformpassword} = req.body
+ 
     const allrady_user = await userModel.findOne({email})
     if(allrady_user){
       res.status(200).json({
-        message:"aapka email iss apps me pahle se hee register hai koi dusra email try karen",
+        message:"your email alrady resister please try another email",
         success:false
       })
       return false
     }
   
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-   if(!emailPattern.test(email)){
+   if(password != conformpassword){
        res.status(200).json({
-        message:"aapka email galat hai sahi email daale",
+        message:"password and conformpassword don't match",
         success:false
       })
       return false
     } 
+    
   const salt = await bcrypt.genSalt(10)
   const hashPassword = await bcrypt.hash(password,salt)
   
@@ -38,7 +30,7 @@ const userSinigupController = async (req,res)=>{
       name,
       email,
       password:hashPassword,
-      profilePic,
+      phone,
     })
     
   await userData.save()

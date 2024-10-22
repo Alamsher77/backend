@@ -12,9 +12,9 @@ const deleteCloudnaryImage = async(req,res)=>{
   api_secret:secret
 }); 
  const {publicid} = req.body 
+ 
  const removeids = publicid?.public_id || publicid?.publicid
     
-   
     const result = await cloudinary.uploader.destroy(removeids);
     
     if(!result){
