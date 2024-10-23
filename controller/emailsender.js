@@ -21,8 +21,8 @@ const emailsender = async(req,res)=>{
   
   if(!finduser){
      res.json({
-    success:fa,
-    message:"Can't find email"
+    success:false,
+    message:"email ID not register on this website"
   })
   return false
   }
