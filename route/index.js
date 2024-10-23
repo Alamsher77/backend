@@ -96,7 +96,8 @@ router.get('/getappnameandicon',getappnameandicon)
 
 // mail sender and verify eail api
 import emailsender from '../controller/emailsender.js'
-import verifyforgatepassword from '../controller/verifyforgatepassword.js';
+import {verifyforgatepassword,changepassword} from '../controller/verifyforgatepassword.js';
 router.post('/emailsender',emailsender)
 router.post('/verifyforgatepassword',verifyforgatepassword)
+router.post('/changepassword',changepassword)
 export default router

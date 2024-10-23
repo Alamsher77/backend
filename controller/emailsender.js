@@ -1,16 +1,7 @@
 import nodemailer from 'nodemailer'
 import crypto from 'crypto'
 import userModel from '../models/usermodel.js'
-import mongoose from 'mongoose'
-
-const schema = new mongoose.Schema({
-  email:String,
-  otp:String,
-  createdAt: { type: Date, expires: '5m', default: Date.now } 
-})
-
-const otpmodel = mongoose.model('otp',schema)
-
+import otpmodel from '../models/otp.js'
 
 const emailsender = async(req,res)=>{
  try {
