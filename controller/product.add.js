@@ -2,9 +2,10 @@ import productModel from '../models/product.model.js'
 
 const addProduct = async (req,res)=>{
   try{
-  const {name,newPrice,oldPrice,image,productInfo,categry} = req.body
+  const {name,stock,sizable,similarName,size,newPrice,oldPrice,image,productInfo,categry} = req.body
   
-  if(name == '' || newPrice == '' || oldPrice == '' ||productInfo == '' || image == ''){
+   
+  if(!stock || !categry || !sizable || !similarName || !name || !newPrice || !oldPrice || !productInfo  || !image ){
     res.json({
       success:false,
       message:'all fields required' 
@@ -26,6 +27,10 @@ const addProduct = async (req,res)=>{
     image,
     productInfo,
     categry,
+    stock,
+    sizable,
+    size,
+    similarName,
   })
   
   await allProducts.save()

@@ -4,14 +4,12 @@ import productCart from '../../models/productCart.js'
 const cheqoutAndPayment = async(req,res)=>{
   try{ 
    const userDetails = await userModel.findOne({_id:req.userId})
-     
   const ProductOrderDetails = new productOrders({
     userDetails:userDetails,
     productDetails:req.body,
     orderType:'default',
   })
   await ProductOrderDetails.save()
-  
    res.json({
      message:'Order Successfully',
      success:true

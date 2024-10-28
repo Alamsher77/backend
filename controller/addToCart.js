@@ -2,7 +2,7 @@ import productCart from '../models/productCart.js'
 
 const addToCart = async (req,res)=>{
   try{
-  const {productId} = req.body
+  const {productId,size} = req.body
   const userId = req.userId
   const findCartProduct = await productCart.findOne({userId,productId})
   
@@ -18,6 +18,7 @@ const addToCart = async (req,res)=>{
     productId,
     userId,
     quantity:1,
+    size,
   })
   const saveCartProduct = await addToCartProduct.save()
   
@@ -27,7 +28,10 @@ const addToCart = async (req,res)=>{
     data:saveCartProduct
   })
   }catch(error){
-    console.log(error)
+    res.json({
+      success:false,
+      message:error.message
+    })
   }
 }
 export default addToCart

@@ -20,6 +20,19 @@ const productSchema = new mongoose.Schema({
     type:String,
     required:true
   },
+  stock:{
+    type:String,
+    required:true,
+  },
+  similarName:{
+    type:String,
+    required:true,
+  },
+  size:[],
+  sizable:{
+    type:String,
+    required:true
+  },
    categry:{
     type:String,
     required:true
