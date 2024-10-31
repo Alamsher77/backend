@@ -9,8 +9,8 @@ import cookieParser from 'cookie-parser'
 dotenv.config()   
 const app = express()
  app.use(express.json()) 
-//const url = 'http://localhost:5173'
- const url = "https://easyshopemart.netlify.app"
+// const url = 'http://localhost:5173'
+const url = "https://easyshopemart.netlify.app"
 app.use(cors({
   origin:url,
   credentials:true
@@ -21,7 +21,7 @@ app.use(cookieParser())
  app.use('/api',router)
  app.use('/image',express.static('uploads/image'))
  
-const PORT = process.env.PORT ||4000 
+const PORT = process.env.PORT || 4000 
 
 app.get('/',(req,res)=>{
   res.send('app running on global')
