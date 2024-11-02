@@ -34,4 +34,3 @@ mongoDb().then(()=>{
 })
 })
 
-export default app
