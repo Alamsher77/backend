@@ -16,6 +16,7 @@ const userSingInController = async (req,res)=>{
       
       return false
     }
+     
     if(password != conformpassword){
        res.status(200).json({
        message:"password and conformpassword don't match",

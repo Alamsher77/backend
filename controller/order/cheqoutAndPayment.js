@@ -1,36 +1,51 @@
 import userModel from '../../models/usermodel.js'
 import productOrders from '../../models/orderProduct.js'
 import productCart from '../../models/productCart.js'
+import productModel from '../../models/product.model.js'
 const cheqoutAndPayment = async(req,res)=>{
   try{ 
+    
    const userDetails = await userModel.findOne({_id:req.userId})
   const ProductOrderDetails = new productOrders({
     userDetails:userDetails,
     productDetails:req.body,
     orderType:'default',
   })
+  
+  // get product id from user 
+  let productId = false  
   await ProductOrderDetails.save()
-   res.json({
-     message:'Order Successfully',
-     success:true
-   })
+ 
    const reqId = req.body
     let deletedId = []
+    let updatedProduct = []
+    let quantityofarry = []
     for(let i=0;i < reqId.length ; i++){
       deletedId.push(reqId[i]._id)
+      quantityofarry.push(reqId[i].quantity)
+      updatedProduct.push(reqId[i].productId._id)
+      
     }
-     const result = await productCart.deleteMany({
-            _id: { $in: deletedId }
-        });
-        if(!result){
-          res.json({
-            message:'delete not found',
+    const findmanyproduct = await productModel.find({_id:updatedProduct})
+  const comparestock =  findmanyproduct.every((item,index)=> item.stock < quantityofarry[index] )
+  if(!userDetails.name || !userDetails.email || !userDetails.phone || !userDetails.block || !userDetails.city || !userDetails.country || !userDetails.currentAddress || !userDetails.deleverAddress){
+       res.json({
+            message:'please add address',
             success:false
           })
-          return false
-        }
+    return false
+  } 
    
+    const updateproductquantity = await productModel.updateMany({_id:updatedProduct},{$inc:{stock: - quantityofarry }})
+    const result = await productCart.deleteMany({
+            _id: { $in: deletedId }
+        });
+     res.json({
+     message:'Order Successfully',
+     success:true
+   }) 
   }catch(error){
+    console.log(error.message)
     res.json({
       message:error.message,
       success:false
