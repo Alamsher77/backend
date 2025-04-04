@@ -23,7 +23,7 @@ app.use(cookieParser())
 const PORT = 4000 
 
 app.get('/',(req,res)=>{
-  res.send('app running on global')
+  res.send('app running on global Using Vercel')
 })
 
 app.use((err,req,res,next)=>{
