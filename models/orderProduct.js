@@ -3,6 +3,7 @@ const orderSchema = new mongoose.Schema({
   userDetails:{},
   productDetails:{},
   orderType:String,
+  paymentMethod:String,
 },{
  timestamps : true
 })

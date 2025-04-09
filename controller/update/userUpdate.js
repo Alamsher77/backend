@@ -1,5 +1,6 @@
 import userModel from '../../models/usermodel.js'
 const userUpdate = async(req,res)=>{ 
+   
     const findAndUpdateUserDetails = await userModel.findByIdAndUpdate(req.userId,req.body)
     if(!findAndUpdateUserDetails){
       res.json({
@@ -8,11 +9,10 @@ const userUpdate = async(req,res)=>{
       })
       return false
     }
-    
-    
+     
     res.json({
       success:true,
-      message:'उपयोगकर्ता विवरण सफलतापूर्वक अपडेट किया गया',
+      message:'User Updated SuccessFull',
       data:findAndUpdateUserDetails
     })
 }
